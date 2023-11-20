@@ -5,7 +5,6 @@ import requests
 headers = {'User-Agent': 'Mozilla/5.0'}
 response = requests.get("https://www.melon.com/chart/index.htm", headers=headers)
 
-
 if response.status_code == 200:
     html_code = response.text
 
@@ -17,7 +16,6 @@ data = []
 i = 1
 for tr_element in lst50_elements:
     div_element = tr_element.find('div', class_='ellipsis rank01')
-    text = ""
     name = ""
     singer = ""
     if div_element:
@@ -30,10 +28,8 @@ for tr_element in lst50_elements:
         a_element = div_element.find('a')
         if a_element:
             singer = a_element.text.strip()
-
-    text = f'{i}. 제목: ' + name +  "  가수: " + singer
+    print(f'{i}. 제목: ' + name +  "  가수: " + singer)
     data.append([i, name, singer])
-    print(text )
     i = i + 1
 
 
@@ -53,9 +49,7 @@ for tr_element in lst100_elements:
         a_element = div_element.find('a')
         if a_element:
             singer = a_element.text.strip()
-
-    text = f'{i}. 제목: ' + name +  "  가수: " + singer
-    print(text)
+    print(f'{i}. 제목: ' + name +  "  가수: " + singer)
     data.append([i, name, singer])
     i = i + 1
 
