@@ -57,4 +57,8 @@ df = pd.DataFrame(data, columns=['순위', '제목', '가수'])
 for row in data:
     print(", ".join(map(str, row)))
 
+<<<<<<< HEAD
 df.to_excel('melon_chart_data.xlsx', index=False)
+=======
+df.to_excel('melon_chart_data.xlsx', index=False)
+>>>>>>> f60c01f0f9817bf19813e640f03243cc41e1eb5e
