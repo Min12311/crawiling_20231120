@@ -28,7 +28,6 @@ for tr_element in lst50_elements:
         a_element = div_element.find('a')
         if a_element:
             singer = a_element.text.strip()
-    print(f'{i}. 제목: ' + name +  "  가수: " + singer)
     data.append([i, name, singer])
     i = i + 1
 
@@ -49,12 +48,13 @@ for tr_element in lst100_elements:
         a_element = div_element.find('a')
         if a_element:
             singer = a_element.text.strip()
-    print(f'{i}. 제목: ' + name +  "  가수: " + singer)
     data.append([i, name, singer])
     i = i + 1
 
 
 df = pd.DataFrame(data, columns=['순위', '제목', '가수'])
 
-# 엑셀 파일로 저장
+for row in data:
+    print(", ".join(map(str, row)))
+
 df.to_excel('melon_chart_data.xlsx', index=False)
